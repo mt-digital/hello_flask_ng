@@ -1,0 +1,4 @@
+*.pyc
+node_modules
+*sublime*
+frontend/bower_components
