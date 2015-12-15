@@ -1,15 +1,15 @@
 'use strict';
 
-var recordService, freshness, yo, emptyContact, emptyRecord;
+// var GreetingService, freshness, yo, emptyContact, emptyRecord;
 
-describe('greetingService server calls', function () {
+describe('GreetingService server calls', function () {
 
-    beforeEach(module('metadataEditor'));
+    beforeEach(module('greetingsApp'));
 
-    var greetingService, $httpBackend, $rootScope;
+    var GreetingService, $httpBackend, $rootScope;
     beforeEach(
         inject(function($injector) {
-            greetingService = $injector.get('greetingService');
+            GreetingService = $injector.get('GreetingService');
 
             $httpBackend = $injector.get('$httpBackend');
             $rootScope = $injector.get('$rootScope');
@@ -25,7 +25,7 @@ describe('greetingService server calls', function () {
     function()
     {
         $httpBackend.expectGET(/hello/).respond(200,
-            {
+                    {
                 language: 'Hebrew',
                 greeting: 'שלום , מאט'
             }
@@ -33,7 +33,7 @@ describe('greetingService server calls', function () {
 
         $rootScope.$digest();
 
-        greetingService.getGreeting('שלום');
+        GreetingService.getGreeting('שלום');
 
         $httpBackend.flush();
     });

@@ -32,8 +32,6 @@ def start_servers(test):
         None
     """
 
-    print test
-
     if test:
         print "setting testing..."
         print test

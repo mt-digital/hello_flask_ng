@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Hola!</title>
+  <link rel="stylesheet"
+        href="/frontend/bower_components/bootstrap/dist/css/bootstrap.css">
+  <link rel="stylesheet"
+        href="/frontend/css/metadata.css">
+  <link rel="stylesheet"
+        href="/frontend/bower_components/octicons/octicons/octicons.css">
+
+  <script type="text/javascript"
+          src="/frontend/bower_components/jquery/dist/jquery.min.js">
+  </script>
+
+  <script type="text/javascript"
+          src="/frontend/bower_components/bootstrap/dist/js/bootstrap.min.js">
+  </script>
+
+  <script type="text/javascript"
+          src="/frontend/bower_components/angular/angular.js"></script>
+
+  <script src="/frontend/js/app.js"></script>
+
+</head>
+
+<body>
+<div  id="bodyDiv">
+<div id="ngMain" ng-app="greetingsApp">
+
+<div ng-controller="GreetingController">
+<div ng-include="'partials/header.html'"></div>
+
+<div id="main-container" class="container">
+
+<h1 ng-show="stuff.greeting" id="greeting" ng-model="stuff.greeting">{{stuff.greeting}}</h1>
+<h1 ng-hide="stuff.greeting">Hello!</h1>
+<h3 id="language" ng-show="stuff.greeting" ng-model="stuff.language">{{stuff.language}}</h3>
+<h4 id="language" ng-hide="stuff.greeting">Language...</h4>
+<br>
+<hr>
+<input type="text" id="name" ng-model="stuff.name" placeholder="Enter your name here"/>
+<button id="handle" ng-click="handleGreetingRequest()">Get your greeting!</button>
+
+</div>
+</div>
+</body>
+</html>
