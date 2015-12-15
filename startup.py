@@ -87,6 +87,10 @@ if __name__ == '__main__':
 
         if runType == 'testAll':
 
+            nt = Popen('nosetests -v', shell=True)
+
+            nt.communicate()
+
             nt = Popen('npm test', shell=True)
 
             nt.communicate()
