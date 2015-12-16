@@ -11,28 +11,34 @@ flavor of those as well.
 This assumes you have Python 2.7.x installed and are working on Linux or
 OS X.
 
+Install the virtualenv script 
 ```bash
 pip install virtualenv
 ```
 
+so you can create a new Python virtual environment using the `venv/` directory to store all the environment's packages, executables, and metadata
 ```bash
-mkdir venv && virtualenv -p /usr/bin/python2.7 venv
+virtualenv -p /usr/bin/python2.7 venv
 ```
 
+Once we've instantiated our virtualenv in the directory `venv/`, we can activate the still-unactivated virtual environment.
 ```bash
-virtualenv activate
+. venv/bin/activate
 ```
 
+Now when we install new modules with the virtualenv activated, the will be installed under `venv/`. virtualenv has done the hard work
+of setting up system PATHS for you so when you run ipython, for example, it will be actually running `venv/bin/ipython`. We can install all the requirements using the following command. As you might guess, the Python requirements are stored in `requirements.txt`.
 ```bash
 pip install -r requirements.txt
 ```
 
 You also need MongoDB installed. To do this you need to have
-[homebrew installed](http://brew.sh) installed and
+[homebrew installed](http://brew.sh) installed. Run
 
 ```bash
 brew install mongodb
 ```
+then follow the instructions `brew` gives you to finish the installation and start your MongoDB server.
 
 
 #### Install (javascript)
