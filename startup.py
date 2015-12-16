@@ -1,16 +1,8 @@
 #!venv/bin/python
 import argparse
-import atexit
-import getopt
 import os
-import signal
-import sys
-import time
 
-from subprocess import Popen, PIPE
-
-from app import create_app
-from flask_mongoengine import MongoEngine
+from subprocess import Popen
 
 
 def _kill_servers():

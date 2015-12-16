@@ -26,6 +26,7 @@
 </head>
 
 <body>
+
 <div  id="bodyDiv">
 <div id="ngMain" ng-app="greetingsApp">
 
@@ -36,8 +37,10 @@
 
 <h1 ng-show="stuff.greeting" id="greeting" ng-model="stuff.greeting">{{stuff.greeting}}</h1>
 <h1 ng-hide="stuff.greeting">Hello!</h1>
+
 <h3 id="language" ng-show="stuff.greeting" ng-model="stuff.language">{{stuff.language}}</h3>
 <h4 id="language" ng-hide="stuff.greeting">Language...</h4>
+
 <br>
 <hr>
 <input type="text" id="name" ng-model="stuff.name" placeholder="Enter your name here"/>

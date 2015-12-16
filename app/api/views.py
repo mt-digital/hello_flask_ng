@@ -1,13 +1,9 @@
 # *-* coding: utf-8 *-*
 """API"""
-import json
-import os
 import random
 
-from .. import config
-from flask import request, jsonify, Response
+from flask import jsonify
 from flask_cors import cross_origin
-from mongoengine import ValidationError
 
 from . import api
 from ..models import Greeting
@@ -50,4 +46,3 @@ def hello(name):
     # respond to client with JSON greeting and language used
     return jsonify({'language': language,
                     'greeting': greeting})
-

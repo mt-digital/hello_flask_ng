@@ -58,3 +58,9 @@ class TestAPI(unittest.TestCase):
         assert len(Greeting.objects) == int(1e3)
 
         assert unused_languages == []
+
+    def test_other_thing(self):
+        """
+        Other thing should work properly
+        """
+        assert False

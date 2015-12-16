@@ -49,12 +49,10 @@ var greetingsApp = angular
 
     $scope.handleGreetingRequest = function () {
         GreetingService.getGreeting($scope.stuff.name)
-            .success( data =>
+            .success( function(whatever)
                 {
-                    console.log('got clicked...');
-                    console.log(data);
-                    $scope.stuff.greeting = data.greeting;
-                    $scope.stuff.language = data.language;
+                    $scope.stuff.greeting = whatever.greeting;
+                    $scope.stuff.language = whatever.language;
                 }
             )
             .error(err => $log.log(err));
