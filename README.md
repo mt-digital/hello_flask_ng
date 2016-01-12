@@ -50,11 +50,7 @@ brew install node
 ```
 
 This will also install the Node Package Manager `npm`, which we'll use to
-install some dependencies. First you need bower installed:
-
-```bash
-brew install
-```
+install some dependencies. First you need to install bower:
 
 ```bash
 npm install -g bower
