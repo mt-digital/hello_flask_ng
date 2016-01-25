@@ -2,11 +2,19 @@
 """API"""
 import random
 
-from flask import jsonify
+from flask import jsonify, request
 from flask_cors import cross_origin
 
 from . import api
+from .. import userFiles
 from ..models import Greeting
+
+# print TEXT
+# print ALL
+
+
+# userFiles = UploadSet('userFiles', ALL)
+# UploadConfiguration()
 
 
 @api.route('/api/hello/<string:name>', methods=['GET'])
@@ -46,3 +54,20 @@ def hello(name):
     # respond to client with JSON greeting and language used
     return jsonify({'language': language,
                     'greeting': greeting})
+
+
+@api.route('/api/upload', methods=['POST'])
+def upload():
+    # import ipdb; ipdb.set_trace();
+    # print request.files
+    if request.method == 'POST':
+
+        userFiles.save(request.files['userFile'])
+
+        return jsonify({'message': 'upload successful!'})
+
+    else:
+        return jsonify({'message': 'Error: must upload with POST'},
+                       status=405)
+
+

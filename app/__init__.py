@@ -4,6 +4,7 @@ VW Platform Application Package Constructor
 from flask import Flask
 from flask_mongoengine import MongoEngine
 from flask_cors import CORS
+from flask_uploads import UploadSet, ALL, configure_uploads
 
 # if there is an exception, we are running tests
 try:
@@ -15,6 +16,7 @@ except:
 db = MongoEngine()
 cors = CORS(resources={r'/app/metadata': {"origins": '*'}})
 
+userFiles = UploadSet('userFiles', ALL)
 
 def create_app(config_name):
     app = Flask(__name__)
@@ -24,6 +26,7 @@ def create_app(config_name):
 
     db.init_app(app)
     cors.init_app(app)
+    configure_uploads(app, userFiles)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)

@@ -16,18 +16,22 @@ class Config:
 
 
 class DevelopmentConfig(Config):
+
+    UPLOADS_DEFAULT_DEST = 'dev-uploads'
     DEBUG = True
 
 
 class TestingConfig(Config):
 
+    UPLOADS_DEFAULT_DEST = 'test-uploads'
     MONGODB_SETTINGS = {'db': 'greetings_test'}
 
     TESTING = True
 
 
 class ProductionConfig(Config):
-    pass
+
+    UPLOADS_DEFAULT_DEST = os.environ.get('HELLO_UPLOADS_DIR')
 
 
 config = {
@@ -36,4 +40,3 @@ config = {
     'production': ProductionConfig,
     'default': DevelopmentConfig
 }
-

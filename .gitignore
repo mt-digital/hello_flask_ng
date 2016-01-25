@@ -2,3 +2,4 @@
 node_modules
 *sublime*
 frontend/bower_components
+*-uploads
