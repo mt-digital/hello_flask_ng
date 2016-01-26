@@ -41,7 +41,17 @@
         <h3 id="language" ng-show="stuff.greeting" ng-model="stuff.language">{{stuff.language}}</h3>
         <h4 id="language" ng-hide="stuff.greeting">Language...</h4>
 
-        <h3 ng-show="stuff.fileName" id="fileName">{{stuff.fileName}}</h3>
+        <h3>Uploaded File Info</h3>
+
+        <div ng-show="stuff.fileName">
+            <p>
+                You uploaded a file! Unfortunately it's not tracked with your greeting...yet!
+            </p>
+            <p><b>{{stuff.fileName}}</b></p>
+        </div>
+        <div ng-hide="stuff.fileName">
+            <p>No file uploaded...</p>
+        </div>
 
         <br>
         <hr>

@@ -60,7 +60,7 @@ def hello(name):
 @cross_origin(origin='*', methods=['POST'],
               headers=['X-Requested-With', 'Content-Type', 'Origin'])
 def upload():
-    if request.method == 'POST':
+    if request.method == 'POST' and 'userFile' in request.files:
         userFiles.save(request.files['userFile'])
 
         return jsonify({'message': 'upload successful!'})
