@@ -28,25 +28,40 @@
 <body>
 
 <div  id="bodyDiv">
-<div id="ngMain" ng-app="greetingsApp">
+    <div id="ngMain" ng-app="greetingsApp">
 
-<div ng-controller="GreetingController">
-<div ng-include="'partials/header.html'"></div>
+        <div ng-controller="GreetingController">
+        <div ng-include="'partials/header.html'"></div>
 
-<div id="main-container" class="container">
+        <div id="main-container" class="container">
 
-<h1 ng-show="stuff.greeting" id="greeting" ng-model="stuff.greeting">{{stuff.greeting}}</h1>
-<h1 ng-hide="stuff.greeting">Hello!</h1>
+        <h1 ng-show="stuff.greeting" id="greeting" ng-model="stuff.greeting">{{stuff.greeting}}</h1>
+        <h1 ng-hide="stuff.greeting">Hello!</h1>
 
-<h3 id="language" ng-show="stuff.greeting" ng-model="stuff.language">{{stuff.language}}</h3>
-<h4 id="language" ng-hide="stuff.greeting">Language...</h4>
+        <h3 id="language" ng-show="stuff.greeting" ng-model="stuff.language">{{stuff.language}}</h3>
+        <h4 id="language" ng-hide="stuff.greeting">Language...</h4>
 
-<br>
-<hr>
-<input type="text" id="name" ng-model="stuff.name" placeholder="Enter your name here"/>
-<button id="handle" ng-click="handleGreetingRequest()">Get your greeting!</button>
+        <h3>Uploaded File Info</h3>
 
-</div>
+        <div ng-show="stuff.fileName">
+            <p>
+                You uploaded a file! Unfortunately it's not tracked with your greeting...yet!
+            </p>
+            <p><b>{{stuff.fileName}}</b></p>
+        </div>
+        <div ng-hide="stuff.fileName">
+            <p>No file uploaded...</p>
+        </div>
+
+        <br>
+        <hr>
+        <input type="text" id="name" ng-model="stuff.name" placeholder="Enter your name here"/>
+        <input type="file" file-model="greetingsFile"/>
+        <button id="handle" ng-click="handleGreetingRequest()">Get your greeting!</button>
+
+        <br>
+
+    </div>
 </div>
 </body>
 </html>

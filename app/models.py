@@ -14,6 +14,8 @@ class Greeting(db.Document):
 
     time_received = db.DateTimeField(default=datetime.now)
 
+    # allow user to upload a single file to associate with the
+    file_include = db.StringField()
 
     meta = {'allow_inheritance': True}
 
