@@ -57,11 +57,10 @@ def hello(name):
 
 
 @api.route('/api/upload', methods=['POST'])
+@cross_origin(origin='*', methods=['POST'],
+              headers=['X-Requested-With', 'Content-Type', 'Origin'])
 def upload():
-    # import ipdb; ipdb.set_trace();
-    # print request.files
     if request.method == 'POST':
-
         userFiles.save(request.files['userFile'])
 
         return jsonify({'message': 'upload successful!'})
